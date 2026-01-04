@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from 'react-dom/client';
+
 /* <div id="parent">
     <div id="child">
         <h1>Namaste React</h1>
@@ -8,9 +11,6 @@
         <h1>Namaste React</h1>
     </div>
 </div> */
-
-
-
 
 const heading = React.createElement(
         "div", {
