@@ -42,7 +42,7 @@
    width: 200px;
 }
 
-.restaurant-card:hover {
+.restaurant-card-container:hover {
     cursor: pointer;
     border: 1px solid #ccc;
 }
@@ -62,4 +62,8 @@
     height: 400px;
     background-color: #ccc;
     margin: 20px;
+}
+
+a {
+  text-decoration: none;
 }
