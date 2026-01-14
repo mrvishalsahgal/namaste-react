@@ -33,16 +33,16 @@ if (!isOnline) return <h1>You are offline</h1>;
         <Shimmer/>
     ) : (
         <div className="body">
-            <div className="search-container">
-                <input type="text" placeholder="Search" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-                <button className="search-btn" onClick={() => {
+            <div className="flex justify-center m-5 gap-5">
+                <input className="p-2 m-2 border border-gray-400 rounded-lg" type="text" placeholder="Search" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+                <button className="bg-red-500 text-white p-2 m-2 rounded-lg py-2" onClick={() => {
                     const filteredRestaurant = listOfRestaurants.filter((res) => 
                         res.info.name.toLowerCase().includes(searchText.toLowerCase())
                     );
                     setFilteredRestaurants(filteredRestaurant);
                 }}>Search</button>
                 <button 
-                    className="filter-btn" 
+                    className="bg-green-500 text-white p-2 m-1 rounded-lg py-2" 
                     onClick={() => {
                         const filteredList = listOfRestaurants.filter(
                             (restaurant) => restaurant.info.avgRating > 4.5
@@ -54,7 +54,7 @@ if (!isOnline) return <h1>You are offline</h1>;
                     Top Rated Restaurants
                 </button>
             </div>
-            <div className="restaurant-card-container">
+            <div className="flex flex-wrap justify-center  ">
                 {
                     filteredRestaurants.map((restaurant) => {
                         return <Link key={restaurant.info.id} to={`/restaurant/${restaurant.info.id}`}><RestaurantCard  restaurant={restaurant} /></Link>

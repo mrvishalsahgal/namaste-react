@@ -8,12 +8,12 @@ const Header = () => {
     const isOnline = useOnlineStatus();
 
     return (
-        <div className="header">
+        <div className="flex justify-between shadow-lg">
          <div className="logo-container">
-            <img className="img" src={LogoUrl} alt="logo" />
+            <img className="w-24" src={LogoUrl} alt="logo" />
          </div>
-         <div className="nav">
-            <ul>
+         <div className="p-5 m-5">
+            <ul className="flex gap-3">
                 <li>Online Status: {isOnline ? "✔️" : "❌"}</li>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
