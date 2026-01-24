@@ -10,6 +10,9 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./utils/UserContex";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 // Epiosde 1 or 2 Learning
 // /* <div id="parent">
@@ -52,12 +55,14 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUsername }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUsername }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -89,6 +94,10 @@ const router = createBrowserRouter([
             <Grocery />
           </Suspense>
         ),
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
